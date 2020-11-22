@@ -5,6 +5,8 @@ import analytics as a
 root = tk.Tk()
 root.title("test")
 root.geometry("500x500")
+label4 = tk.Label(root, text="Search followers:")
+label4.pack()
 
 search_bar = tk.Entry(root)
 search_bar.pack()
@@ -22,7 +24,6 @@ def src_fn():
         label2 = tk.Label(root, text="User not found")
         label2.pack()
 
-var = search_bar.get()
 def an_fn():
     t_id = a.t_id
     t_uname = a.t_un
@@ -43,8 +44,9 @@ def an_fn():
 search_btn = tk.Button(root, text="Search", command=src_fn)
 search_btn.pack()
 
-an_btn = tk.Button(root, text="Get Analytics", command=an_fn)
-an_btn.pack()
+label3 = tk.Label(root, text="Followers list of the user")
+label3.pack()
+
 frame = tk.Frame(root)
 scbar = tk.Scrollbar(frame, orient = "vertical")
 
@@ -58,6 +60,6 @@ followers_list_box.pack(pady=15)
 for i in w.followerslist:
     followers_list_box.insert(0,i)
 
-
-
+an_btn = tk.Button(root, text="Get Analytics", command=an_fn)
+an_btn.pack()
 root.mainloop()
